@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Got it — GA Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&family=Courier+Prime:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --paper: #f7f3ec; --ink: #18160f; --soft: #e8e2d6; --rule: #cdc7bc; --red: #9b2c1a; --muted: #7c7872; --white: #fffefb; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Karla', sans-serif; font-weight: 300; line-height: 1.6; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; background: var(--paper); border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+.nav-logo span { color: var(--red); }
+.main { margin-top: 56px; min-height: calc(100vh - 56px); display: flex; align-items: center; justify-content: center; padding: 80px 48px; border-bottom: 1px solid var(--rule); }
+.content { max-width: 560px; }
+.tag { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 300; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
+h1 em { font-style: italic; color: var(--red); }
+p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+.btn { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 14px 32px; text-decoration: none; border: 1px solid var(--ink); transition: background 0.2s; display: inline-block; }
+.btn:hover { background: var(--red); border-color: var(--red); }
+footer { background: var(--ink); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--paper); letter-spacing: 1px; }
+.footer-logo span { color: #c8a87a; }
+.footer-right { font-family: 'Courier Prime', monospace; font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+@media (max-width: 768px) { nav { padding: 0 24px; } .main { padding: 48px 24px; } footer { padding: 40px 24px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">G<span>.</span>A</a>
+</nav>
+<main class="main">
+  <div class="content">
+    <div class="tag">Notion Starter</div>
+    <h1>Got it.<br>Preview coming<br>in <em>48 hours.</em></h1>
+    <p>I've received your details. I'll build a free preview of your Notion workspace and send it over within 48 hours. No payment, no commitment — just a look at what your system could be.</p>
+    <a href="index.html" class="btn">Back to the site →</a>
+  </div>
+</main>
+<footer>
+  <div class="footer-logo">G<span>.</span>A Consulting</div>
+  <div class="footer-right">2026</div>
+</footer>
+</body>
+</html>

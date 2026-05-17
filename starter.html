@@ -249,7 +249,9 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
     <h2>Tell me about<br>your <em>company</em></h2>
     <p>I'll build a free preview of your Notion workspace. No commitment, no payment. If it looks right, we go from there.</p>
   </div>
-  <form class="order-form" name="starter-order" method="POST" action="contact.html">
+  <form class="order-form" name="starter-order" method="POST" action="/thank-you" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="starter-order">
+    <p class="form-group" style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
     <div class="form-group">
       <label class="form-label" for="name">Your name</label>
       <input class="form-input" type="text" id="name" name="name" placeholder="Guido Arazi" required>

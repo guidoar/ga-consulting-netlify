@@ -78,6 +78,8 @@ nav {
 .service-includes { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .service-includes li { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding-left: 14px; position: relative; }
 .service-includes li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
+.service-cta { display: inline-block; margin-top: 28px; font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; transition: border-color 0.2s, color 0.2s; }
+.service-cta:hover { color: var(--red); border-color: var(--red); }
 .starter-strip { padding: 48px; background: var(--soft); border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 48px; }
 .starter-strip-left { display: flex; flex-direction: column; gap: 8px; }
 .starter-strip-tag { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); }
@@ -249,18 +251,21 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
       <div class="service-name">Full Notion Setup</div>
       <p class="service-desc">Your entire company in one workspace. From client tracking to team tasks — built from scratch around how you actually work.</p>
       <ul class="service-includes"><li>CRM + pipeline</li><li>Project tracking</li><li>Team wiki</li><li>Dashboard + automations</li><li>Training session</li></ul>
+      <a href="contact.html" class="service-cta">Book a free call →</a>
     </div>
     <div class="service-card">
       <span class="service-num">S·02</span>
       <div class="service-name">CRM & Sales System</div>
       <p class="service-desc">A proper pipeline for small teams who are tired of losing leads in spreadsheets, sticky notes, and email threads.</p>
       <ul class="service-includes"><li>Lead tracking</li><li>Pipeline board</li><li>Client profiles</li><li>Follow-up reminders</li><li>Revenue overview</li></ul>
+      <a href="contact.html" class="service-cta">Book a free call →</a>
     </div>
     <div class="service-card">
       <span class="service-num">S·03</span>
       <div class="service-name">Operations & Wiki</div>
       <p class="service-desc">Document how your company works — so new hires get up to speed in days, not months. SOPs that people actually use.</p>
       <ul class="service-includes"><li>Company handbook</li><li>Process documentation</li><li>Onboarding flows</li><li>Knowledge base</li><li>Team templates</li></ul>
+      <a href="contact.html" class="service-cta">Book a free call →</a>
     </div>
   </div>
 </section>
