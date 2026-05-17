@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notion Starter — GA Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&family=Courier+Prime:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #f7f3ec; --ink: #18160f; --soft: #e8e2d6;
+  --rule: #cdc7bc; --red: #9b2c1a; --muted: #7c7872; --white: #fffefb;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Karla', sans-serif; font-weight: 300; line-height: 1.6; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 56px; background: var(--paper); border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 48px;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.nav-cta { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 8px 20px; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--red); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); }
+.mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--rule); padding: 24px 24px; flex-direction: column; gap: 20px; z-index: 99; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; }
+
+/* Hero */
+.starter-hero { margin-top: 56px; padding: 80px 48px; border-bottom: 2px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.starter-tag { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.starter-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+.starter-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 68px); font-weight: 300; line-height: 1.05; letter-spacing: -1px; margin-bottom: 32px; }
+.starter-headline em { font-style: italic; color: var(--red); }
+.starter-body { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; max-width: 460px; }
+.starter-price-block { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
+.starter-price { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; line-height: 1; }
+.starter-price-label { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+.btn-primary { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 14px 32px; text-decoration: none; border: 1px solid var(--ink); transition: background 0.2s; display: inline-block; }
+.btn-primary:hover { background: var(--red); border-color: var(--red); }
+.btn-ghost { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); padding: 14px 32px; text-decoration: none; border: 1px solid var(--ink); transition: all 0.2s; display: inline-block; }
+.btn-ghost:hover { background: var(--ink); color: var(--white); }
+.hero-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.starter-hero-right { background: var(--soft); padding: 48px; display: flex; flex-direction: column; gap: 24px; }
+.starter-meta-item { display: flex; flex-direction: column; gap: 4px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+.starter-meta-item:last-child { border-bottom: none; padding-bottom: 0; }
+.starter-meta-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+.starter-meta-value { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+
+/* What's included */
+.includes { padding: 100px 48px; border-bottom: 1px solid var(--rule); }
+.section-header { display: flex; align-items: baseline; gap: 24px; margin-bottom: 64px; border-bottom: 2px solid var(--ink); padding-bottom: 16px; }
+.section-num { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: var(--red); }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; }
+.includes-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--rule); }
+.includes-card { padding: 40px 36px; border-right: 1px solid var(--rule); }
+.includes-card:last-child { border-right: none; }
+.includes-num { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); margin-bottom: 24px; display: block; }
+.includes-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 12px; line-height: 1.2; }
+.includes-desc { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+.includes-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.includes-list li { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding-left: 14px; position: relative; }
+.includes-list li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
+
+/* How it works */
+.how { padding: 100px 48px; background: var(--white); border-bottom: 1px solid var(--rule); }
+.how-grid { display: grid; grid-template-columns: 1fr 2px 1fr 2px 1fr; margin-top: 64px; }
+.how-divider { background: var(--rule); }
+.how-step { padding: 0 36px; }
+.how-step:first-child { padding-left: 0; }
+.how-step:last-child { padding-right: 0; }
+.how-step-num { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: var(--soft); line-height: 1; margin-bottom: 16px; }
+.how-step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+.how-step-desc { font-size: 15px; color: var(--muted); line-height: 1.8; }
+.how-step-tag { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; padding: 3px 8px; border: 1px solid var(--rule); color: var(--muted); }
+
+/* Form */
+.order { padding: 100px 48px; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.order-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+.order-left h2 em { font-style: italic; color: var(--red); }
+.order-left p { font-size: 15px; color: var(--muted); line-height: 1.8; }
+.order-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+.form-input, .form-textarea { font-family: 'Karla', sans-serif; font-size: 15px; font-weight: 300; background: var(--white); border: 1px solid var(--rule); padding: 12px 16px; color: var(--ink); outline: none; transition: border-color 0.2s; width: 100%; }
+.form-input:focus, .form-textarea:focus { border-color: var(--ink); }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-submit { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 14px 32px; border: 1px solid var(--ink); cursor: pointer; transition: background 0.2s; text-align: left; }
+.form-submit:hover { background: var(--red); border-color: var(--red); }
+.form-note { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--rule); }
+
+footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--paper); letter-spacing: 1px; }
+.footer-logo span { color: #c8a87a; }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--paper); }
+.footer-right { font-family: 'Courier Prime', monospace; font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: 1px; text-align: right; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .starter-hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 40px; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .includes-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .includes-card:last-child { border-bottom: none; }
+  .how-grid { grid-template-columns: 1fr; gap: 40px; }
+  .how-divider { display: none; }
+  .how-step { padding: 0; }
+  .order { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+  .includes { padding: 72px 24px; }
+  .how { padding: 72px 24px; }
+  footer { grid-template-columns: 1fr; gap: 20px; padding: 40px 24px; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+  .footer-right { text-align: left; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">G<span>.</span>A</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#how">Process</a></li>
+    <li><a href="starter.html" class="active">Starter</a></li>
+    <li><a href="articles.html">Writing</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="#order" class="nav-cta">Get started</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#how">Process</a>
+  <a href="starter.html">Starter</a>
+  <a href="articles.html">Writing</a>
+  <a href="about.html">About</a>
+  <a href="#order">Get started</a>
+</div>
+
+<section class="starter-hero">
+  <div>
+    <div class="starter-tag">Notion Starter</div>
+    <h1 class="starter-headline">Your company<br>in Notion.<br><em>7 days.</em> €899.</h1>
+    <p class="starter-body">Fixed scope, fixed price, no discovery call needed. Fill in the form, I build a free preview first — you only pay if you like what you see.</p>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary">Get your free preview</a>
+      <a href="index.html#services" class="btn-ghost">See full builds →</a>
+    </div>
+  </div>
+  <div class="starter-hero-right">
+    <div class="starter-meta-item">
+      <span class="starter-meta-label">Price</span>
+      <span class="starter-meta-value">€899 fixed</span>
+    </div>
+    <div class="starter-meta-item">
+      <span class="starter-meta-label">Delivery</span>
+      <span class="starter-meta-value">7 days</span>
+    </div>
+    <div class="starter-meta-item">
+      <span class="starter-meta-label">What you get</span>
+      <span class="starter-meta-value">3 core systems</span>
+    </div>
+    <div class="starter-meta-item">
+      <span class="starter-meta-label">Risk</span>
+      <span class="starter-meta-value">Free preview first</span>
+    </div>
+  </div>
+</section>
+
+<section class="includes">
+  <div class="section-header"><span class="section-num">01</span><h2 class="section-title">What's included</h2></div>
+  <div class="includes-grid">
+    <div class="includes-card">
+      <span class="includes-num">S·01</span>
+      <div class="includes-name">CRM & Contacts</div>
+      <p class="includes-desc">All your clients and leads in one place. No more lost contacts in email threads or spreadsheets.</p>
+      <ul class="includes-list">
+        <li>Contact database</li>
+        <li>Pipeline board</li>
+        <li>Follow-up tracking</li>
+        <li>Client status views</li>
+      </ul>
+    </div>
+    <div class="includes-card">
+      <span class="includes-num">S·02</span>
+      <div class="includes-name">Project Tracker</div>
+      <p class="includes-desc">One view of everything in progress. What's done, what's blocked, who owns what.</p>
+      <ul class="includes-list">
+        <li>Project database</li>
+        <li>Task tracking</li>
+        <li>Status board</li>
+        <li>Team assignments</li>
+      </ul>
+    </div>
+    <div class="includes-card">
+      <span class="includes-num">S·03</span>
+      <div class="includes-name">Team Wiki</div>
+      <p class="includes-desc">How your company works, written down. New hires find answers without asking.</p>
+      <ul class="includes-list">
+        <li>Company handbook</li>
+        <li>Onboarding checklist</li>
+        <li>Process docs</li>
+        <li>Team templates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="section-header"><span class="section-num">02</span><h2 class="section-title">How it works</h2></div>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-step-num">01</div>
+      <div class="how-step-title">Fill the form</div>
+      <p class="how-step-desc">Tell me about your company — what you do, how many people, what's broken. Takes 5 minutes.</p>
+      <span class="how-step-tag">5 minutes</span>
+    </div>
+    <div class="how-divider"></div>
+    <div class="how-step">
+      <div class="how-step-num">02</div>
+      <div class="how-step-title">I build a free preview</div>
+      <p class="how-step-desc">Within 48 hours, I send you a preview of your Notion workspace. No payment yet.</p>
+      <span class="how-step-tag">48h · free</span>
+    </div>
+    <div class="how-divider"></div>
+    <div class="how-step">
+      <div class="how-step-num">03</div>
+      <div class="how-step-title">You pay, I finish</div>
+      <p class="how-step-desc">Like what you see? Pay €899. I complete the full build and hand it over in 7 days with a walkthrough.</p>
+      <span class="how-step-tag">€899 · 7 days</span>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="order-left">
+    <h2>Tell me about<br>your <em>company</em></h2>
+    <p>I'll build a free preview of your Notion workspace. No commitment, no payment. If it looks right, we go from there.</p>
+  </div>
+  <form class="order-form" name="starter-order" method="POST" action="contact.html">
+    <div class="form-group">
+      <label class="form-label" for="name">Your name</label>
+      <input class="form-input" type="text" id="name" name="name" placeholder="Guido Arazi" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="company">Company name</label>
+      <input class="form-input" type="text" id="company" name="company" placeholder="Acme Ltd" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="team">Team size</label>
+      <input class="form-input" type="text" id="team" name="team" placeholder="e.g. 8 people">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="pain">What's your biggest operational headache right now?</label>
+      <textarea class="form-textarea" id="pain" name="pain" placeholder="e.g. leads fall through the cracks, onboarding new hires takes weeks..." required></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="email">Your email</label>
+      <input class="form-input" type="email" id="email" name="email" placeholder="you@yourcompany.com" required>
+    </div>
+    <button type="submit" class="form-submit">Send — get free preview →</button>
+    <p class="form-note">No payment now. Preview within 48 hours.</p>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-logo">G<span>.</span>A Consulting</div>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="starter.html">Starter</a></li>
+    <li><a href="articles.html">Writing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-right">2026</div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.querySelector('.hamburger');
+  if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>

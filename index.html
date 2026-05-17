@@ -78,6 +78,15 @@ nav {
 .service-includes { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .service-includes li { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding-left: 14px; position: relative; }
 .service-includes li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
+.starter-strip { padding: 48px; background: var(--soft); border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.starter-strip-left { display: flex; flex-direction: column; gap: 8px; }
+.starter-strip-tag { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); }
+.starter-strip-headline { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1.2; }
+.starter-strip-headline em { font-style: italic; color: var(--red); }
+.starter-strip-desc { font-size: 15px; color: var(--muted); max-width: 480px; }
+.starter-strip-right { display: flex; align-items: center; gap: 32px; flex-shrink: 0; }
+.starter-strip-price { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; white-space: nowrap; }
+.starter-strip-price span { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); display: block; margin-top: 2px; }
 .how { padding: 100px 48px; background: var(--white); border-bottom: 1px solid var(--rule); }
 .how-grid { display: grid; grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr; margin-top: 64px; }
 .how-divider { background: var(--rule); }
@@ -142,6 +151,8 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   .how-divider { display: none; }
   .how-step { padding: 0; }
   .trust { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+  .starter-strip { flex-direction: column; align-items: flex-start; gap: 24px; padding: 40px 24px; }
+  .starter-strip-right { flex-direction: column; align-items: flex-start; gap: 16px; }
   .trust-divider { display: none; }
   .trust-item { padding: 0; }
   .articles-teaser { grid-template-columns: 1fr; gap: 24px; padding: 40px 24px; }
@@ -192,6 +203,7 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   <ul class="nav-links">
     <li><a href="index.html#services" >Services</a></li>
     <li><a href="index.html#how">Process</a></li>
+    <li><a href="starter.html">Starter</a></li>
     <li><a href="articles.html" >Writing</a></li>
     <li><a href="about.html" >About</a></li>
   </ul>
@@ -203,6 +215,7 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html#services">Services</a>
   <a href="index.html#how">Process</a>
+  <a href="starter.html">Starter</a>
   <a href="articles.html">Writing</a>
   <a href="about.html">About</a>
   <a href="contact.html">Work with me</a>
@@ -254,6 +267,18 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   </div>
 </section>
 
+<section class="starter-strip">
+  <div class="starter-strip-left">
+    <span class="starter-strip-tag">Notion Starter</span>
+    <div class="starter-strip-headline">Not ready for a full build? Start with <em>the essentials.</em></div>
+    <p class="starter-strip-desc">Fixed scope, fixed price. CRM, projects, and wiki — built and handed over in 7 days. Free preview first, no payment until you like what you see.</p>
+  </div>
+  <div class="starter-strip-right">
+    <div class="starter-strip-price">€899 <span>Fixed · 7 days</span></div>
+    <a href="starter.html" class="btn-primary">See what's included →</a>
+  </div>
+</section>
+
 <section class="how" id="how">
   <div class="section-header"><span class="section-num">02</span><h2 class="section-title">From call to live system</h2></div>
   <div class="how-grid">
@@ -293,6 +318,7 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   <div class="footer-logo">G<span>.</span>A Consulting</div>
   <ul class="footer-links">
     <li><a href="index.html#services">Services</a></li>
+    <li><a href="starter.html">Starter</a></li>
     <li><a href="articles.html">Writing</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
