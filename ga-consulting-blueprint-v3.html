@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GA Consulting — Operations Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Newsreader:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f0ece3;
+  color: #1a1714;
+  font-family: 'Newsreader', serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 32px 120px; }
+
+/* HEADER */
+.hdr {
+  border-top: 6px solid #1a1714;
+  padding-top: 28px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 0;
+}
+.hdr-meta {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7a746a;
+  line-height: 2;
+}
+.hdr-center { text-align: center; }
+.hdr-right { text-align: right; }
+.masthead {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 108px;
+  letter-spacing: 4px;
+  line-height: 0.85;
+  text-align: center;
+  margin: 12px 0;
+  border-top: 2px solid #1a1714;
+  border-bottom: 2px solid #1a1714;
+  padding: 18px 0 14px;
+}
+.masthead em {
+  font-style: normal;
+  -webkit-text-stroke: 2px #1a1714;
+  color: transparent;
+}
+.sub-rule {
+  border: none;
+  border-bottom: 1px solid #c8c0b4;
+  margin: 6px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-text {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #7a746a;
+  padding: 8px 20px;
+  border-left: 1px solid #c8c0b4;
+  border-right: 1px solid #c8c0b4;
+  text-align: center;
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* SECTION TITLE */
+.sec {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin: 56px 0 28px;
+  border-top: 2px solid #1a1714;
+  padding-top: 14px;
+}
+.sec-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  color: #c8392b;
+}
+.sec-t {
+  font-family: 'Newsreader', serif;
+  font-size: 26px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+/* JOURNEY */
+.legend-bar {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 20px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7a746a;
+  align-items: center;
+}
+.pip { display: inline-block; width: 10px; height: 10px; margin-right: 6px; }
+.pip.auto { background: #1a1714; }
+.pip.you { background: #c8392b; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border: 2px solid #1a1714;
+}
+.stp {
+  border-right: 1px solid #c8c0b4;
+  position: relative;
+}
+.stp:last-child { border-right: none; }
+.stp-top {
+  padding: 8px 10px 6px;
+  border-bottom: 1px solid #c8c0b4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stp-n {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: #7a746a;
+  letter-spacing: 1px;
+}
+.stp-dot { width: 8px; height: 8px; }
+.stp-dot.auto { background: #1a1714; }
+.stp-dot.you { background: #c8392b; }
+.stp-body { padding: 10px; }
+.stp-t {
+  font-family: 'Newsreader', serif;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+.stp-d {
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px;
+  color: #7a746a;
+  line-height: 1.6;
+}
+.stp-tag {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  padding: 2px 0;
+  border-top: 1px solid;
+}
+.stp-tag.auto { color: #1a1714; border-color: #1a1714; }
+.stp-tag.you { color: #c8392b; border-color: #c8392b; }
+
+/* TWO COL LAYOUT */
+.cols2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid #1a1714;
+  margin-bottom: 4px;
+}
+.col {
+  padding: 24px;
+  border-right: 1px solid #c8c0b4;
+}
+.col:last-child { border-right: none; }
+.col-hd {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #1a1714;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+.db-row {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0dbd2;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+.db-row:last-child { border-bottom: none; }
+.db-bar {
+  width: 3px;
+  height: 100%;
+  min-height: 30px;
+  margin-top: 3px;
+}
+.db-bar.p { background: #1a1714; }
+.db-bar.s { background: #c8c0b4; }
+.db-bar.a { background: #c8392b; }
+.db-name {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.db-props {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: #7a746a;
+  line-height: 1.8;
+}
+
+/* AUTOMATIONS */
+.auto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid #1a1714;
+}
+.auto-card {
+  padding: 20px;
+  border-right: 1px solid #c8c0b4;
+  border-bottom: 1px solid #c8c0b4;
+  position: relative;
+}
+.auto-card:nth-child(3n) { border-right: none; }
+.auto-card:nth-child(4), .auto-card:nth-child(5), .auto-card:nth-child(6) { border-bottom: none; }
+.auto-trig {
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #7a746a;
+  margin-bottom: 8px;
+  display: block;
+}
+.auto-name {
+  font-family: 'Newsreader', serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.auto-list {
+  list-style: none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: #4a4540;
+  line-height: 2;
+}
+.auto-list li::before { content: '→ '; color: #7a746a; }
+.auto-tool {
+  display: inline-block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #1a1714;
+  padding: 2px 7px;
+  margin-top: 12px;
+  color: #1a1714;
+}
+
+/* STACK TABLE */
+.stack-wrap {
+  border: 2px solid #1a1714;
+  margin-bottom: 4px;
+}
+.stack-head {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr 1fr;
+  background: #1a1714;
+  color: #f0ece3;
+  padding: 10px 16px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  gap: 16px;
+}
+.stack-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr 1fr;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e0dbd2;
+  align-items: start;
+  gap: 16px;
+  transition: background 0.15s;
+}
+.stack-row:last-child { border-bottom: none; }
+.stack-row:hover { background: #e8e3d8; }
+.tool-n {
+  font-family: 'Newsreader', serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+.tool-r {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: #7a746a;
+  line-height: 1.6;
+}
+.tool-p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+.tool-p.paid { color: #1a1714; }
+.tool-p.free { color: #7a746a; }
+.tool-cat {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7a746a;
+}
+
+/* COST BOX */
+.cost-box {
+  border: 2px solid #c8392b;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 4px;
+}
+.cost-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #7a746a;
+  margin-bottom: 8px;
+}
+.cost-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: #c8392b;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.cost-note {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: #7a746a;
+  line-height: 2.2;
+  text-align: right;
+  border-left: 2px solid #e0dbd2;
+  padding-left: 32px;
+}
+.cost-note strong {
+  color: #1a1714;
+  font-weight: 700;
+}
+
+/* DRIVE */
+.drive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid #1a1714;
+}
+.drive-col { padding: 24px; border-right: 1px solid #c8c0b4; }
+.drive-col:last-child { border-right: none; }
+.drive-hd {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1a1714;
+}
+.drive-item {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: #4a4540;
+  line-height: 2.4;
+  border-bottom: 1px dotted #c8c0b4;
+  display: block;
+}
+.drive-item:last-child { border-bottom: none; }
+.drive-item::before { content: '/ '; color: #c8392b; font-weight: 700; }
+
+/* FOOTER RULE */
+.footer {
+  border-top: 2px solid #1a1714;
+  margin-top: 64px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-l {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.footer-r {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: #7a746a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: right;
+  line-height: 2;
+}
+
+@media (max-width: 700px) {
+  .masthead { font-size: 64px; }
+  .hdr { grid-template-columns: 1fr; }
+  .hdr-right, .hdr-center { text-align: left; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .stp:nth-child(3n) { border-right: none; }
+  .stp:not(:nth-child(3n)) { border-right: 1px solid #c8c0b4; }
+  .cols2, .auto-grid, .drive-grid { grid-template-columns: 1fr; }
+  .col, .drive-col { border-right: none; border-bottom: 1px solid #c8c0b4; }
+  .auto-card { border-right: none; }
+  .stack-head, .stack-row { grid-template-columns: 1fr 1fr; }
+  .cost-box { grid-template-columns: 1fr; }
+  .cost-note { border-left: none; border-top: 1px solid #e0dbd2; padding-left: 0; padding-top: 16px; text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="hdr">
+    <div class="hdr-meta">
+      GA Consulting<br>
+      Est. 2025<br>
+      Amsterdam, NL
+    </div>
+    <div class="hdr-center hdr-meta">
+      Notion Systems<br>
+      for Growing Companies
+    </div>
+    <div class="hdr-meta hdr-right">
+      Internal Document<br>
+      March 2026<br>
+      Version 1.0
+    </div>
+  </div>
+
+  <div class="masthead">GA<em>.</em></div>
+  <div class="sub-text">Operations & Systems Blueprint &nbsp;·&nbsp; Notion + n8n Stack &nbsp;·&nbsp; Confidential</div>
+
+  <!-- 01 CLIENT JOURNEY -->
+  <div class="sec">
+    <div class="sec-n">01</div>
+    <div class="sec-t">The client journey — from first contact to delivery</div>
+  </div>
+
+  <div class="legend-bar">
+    <span><span class="pip auto"></span>Automated</span>
+    <span><span class="pip you"></span>You do it</span>
+  </div>
+
+  <div class="steps">
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">01</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Lead Submits Intake Form</div>
+        <div class="stp-d">Typeform captures name, company, goals, budget</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">02</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">CRM Record Created</div>
+        <div class="stp-d">n8n creates entry in Notion, tags as Lead, notifies you</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">03</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Welcome Email Sent</div>
+        <div class="stp-d">Personal email + Calendly link to book discovery call</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">04</span><div class="stp-dot you"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Discovery Call</div>
+        <div class="stp-d">30 min. Confirm scope, budget, timeline</div>
+        <span class="stp-tag you">You</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">05</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Proposal Sent</div>
+        <div class="stp-d">Generated from Notion template, sent via email</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">06</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Contract + Invoice</div>
+        <div class="stp-d">Google Docs contract + Stripe invoice sent</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">07</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Client Onboarded</div>
+        <div class="stp-d">Drive folder created, project template set up</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">08</span><div class="stp-dot you"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">You Build the System</div>
+        <div class="stp-d">Design & deliver the Notion workspace</div>
+        <span class="stp-tag you">You</span>
+      </div>
+    </div>
+    <div class="stp">
+      <div class="stp-top"><span class="stp-n">09</span><div class="stp-dot auto"></div></div>
+      <div class="stp-body">
+        <div class="stp-t">Handoff + Testimonial</div>
+        <div class="stp-d">Loom, handoff guide, testimonial request sent</div>
+        <span class="stp-tag auto">Automated</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 NOTION STRUCTURE -->
+  <div class="sec">
+    <div class="sec-n">02</div>
+    <div class="sec-t">Notion HQ — databases & daily views</div>
+  </div>
+
+  <div class="cols2">
+    <div class="col">
+      <div class="col-hd">Core Databases</div>
+      <div class="db-row">
+        <div class="db-bar p"></div>
+        <div><div class="db-name">CRM — Clients & Leads</div><div class="db-props">Name · Company · Stage · Budget<br>Service Type · Source · Drive Link</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar p"></div>
+        <div><div class="db-name">Projects</div><div class="db-props">Client (linked) · Phase · Dates<br>Value · Drive Folder · Loom Link</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar p"></div>
+        <div><div class="db-name">Invoices & Revenue</div><div class="db-props">Client · Amount · Status<br>Due Date · Paid Date · Method</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar s"></div>
+        <div><div class="db-name">Tasks</div><div class="db-props">Project (linked) · Priority<br>Status · Type · Due Date</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar a"></div>
+        <div><div class="db-name">Templates Library</div><div class="db-props">Proposals · Contracts · Email scripts<br>SOPs · Notion blocks</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col-hd">Daily Views to Set Up</div>
+      <div class="db-row">
+        <div class="db-bar p"></div>
+        <div><div class="db-name">Pipeline Board</div><div class="db-props">CRM as Board → Group by Stage<br>Lead · Discovery · Proposal · Active · Done</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar s"></div>
+        <div><div class="db-name">Project Timeline</div><div class="db-props">Projects as Timeline view<br>Deadlines & delivery dates at a glance</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar s"></div>
+        <div><div class="db-name">Today's Tasks</div><div class="db-props">Tasks filtered: Due = Today<br>Sorted by priority</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar s"></div>
+        <div><div class="db-name">Unpaid Invoices</div><div class="db-props">Invoices filtered: Status ≠ Paid<br>Sorted by due date</div></div>
+      </div>
+      <div class="db-row">
+        <div class="db-bar a"></div>
+        <div><div class="db-name">Revenue This Month</div><div class="db-props">Invoices filtered by month<br>Sum formula at the top</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 AUTOMATIONS -->
+  <div class="sec">
+    <div class="sec-n">03</div>
+    <div class="sec-t">n8n automations — what runs without you</div>
+  </div>
+
+  <div class="auto-grid">
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Form submitted</span>
+      <div class="auto-name">New Lead Welcome Flow</div>
+      <ul class="auto-list">
+        <li>Create CRM entry (Stage = Lead)</li>
+        <li>Send welcome email + Calendly link</li>
+        <li>Notify you via Gmail</li>
+        <li>Add 48h follow-up task in Notion</li>
+      </ul>
+      <span class="auto-tool">n8n</span>
+    </div>
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Stage → Signed</span>
+      <div class="auto-name">Client Onboarding Setup</div>
+      <ul class="auto-list">
+        <li>Create Google Drive folder</li>
+        <li>Copy project template in Notion</li>
+        <li>Share folder with client email</li>
+        <li>Send onboarding email + next steps</li>
+      </ul>
+      <span class="auto-tool">n8n</span>
+    </div>
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Stage → Proposal</span>
+      <div class="auto-name">Proposal Auto-Send</div>
+      <ul class="auto-list">
+        <li>Pull client info from Notion CRM</li>
+        <li>Fill proposal template with data</li>
+        <li>Save PDF to Drive</li>
+        <li>Send via email with sign link</li>
+      </ul>
+      <span class="auto-tool">n8n + Google Docs</span>
+    </div>
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Proposal signed</span>
+      <div class="auto-name">Contract + Invoice Sent</div>
+      <ul class="auto-list">
+        <li>Send contract via Signaturely</li>
+        <li>Create Stripe invoice + send</li>
+        <li>Update CRM → Active Client</li>
+        <li>Create project + tasks in Notion</li>
+      </ul>
+      <span class="auto-tool">n8n + Stripe</span>
+    </div>
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Stripe payment received</span>
+      <div class="auto-name">Payment Confirmed</div>
+      <ul class="auto-list">
+        <li>Mark invoice as Paid in Notion</li>
+        <li>Send receipt to client</li>
+        <li>Update monthly revenue tracker</li>
+      </ul>
+      <span class="auto-tool">Stripe webhook → n8n</span>
+    </div>
+    <div class="auto-card">
+      <span class="auto-trig">Trigger — Phase → Delivered</span>
+      <div class="auto-name">Project Handoff Flow</div>
+      <ul class="auto-list">
+        <li>Send handoff email + Loom link</li>
+        <li>Request Google review / testimonial</li>
+        <li>Archive project in Notion</li>
+        <li>Schedule 30-day check-in</li>
+      </ul>
+      <span class="auto-tool">n8n</span>
+    </div>
+  </div>
+
+  <!-- 04 GOOGLE DRIVE -->
+  <div class="sec">
+    <div class="sec-n">04</div>
+    <div class="sec-t">Google Drive — file structure per client</div>
+  </div>
+
+  <div class="drive-grid">
+    <div class="drive-col">
+      <div class="drive-hd">Your Internal Drive</div>
+      <span class="drive-item">GA Consulting</span>
+      <span class="drive-item">Clients / [Client Name]</span>
+      <span class="drive-item">Contracts & Legal</span>
+      <span class="drive-item">Proposals & Quotes</span>
+      <span class="drive-item">Discovery Notes & Recordings</span>
+      <span class="drive-item">Deliverables</span>
+      <span class="drive-item">Invoices</span>
+    </div>
+    <div class="drive-col">
+      <div class="drive-hd">Shared with Client (read-only)</div>
+      <span class="drive-item">Their own folder only</span>
+      <span class="drive-item">Proposal PDF</span>
+      <span class="drive-item">Signed contract copy</span>
+      <span class="drive-item">Handoff guide + Loom link</span>
+      <span class="drive-item">Invoice & payment receipt</span>
+    </div>
+  </div>
+
+  <!-- 05 TOOL STACK -->
+  <div class="sec">
+    <div class="sec-n">05</div>
+    <div class="sec-t">Tool stack — everything you need to run GA Consulting</div>
+  </div>
+
+  <div class="stack-wrap">
+    <div class="stack-head">
+      <span>Tool</span>
+      <span>What it does</span>
+      <span>Cost / mo</span>
+      <span>Category</span>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Notion</div></div>
+      <div class="tool-r">Your full HQ — CRM, projects, templates, tasks, invoices</div>
+      <div class="tool-p paid">€20</div>
+      <div class="tool-cat">Core</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Claude Pro</div></div>
+      <div class="tool-r">Write proposals, emails, contracts, SOPs — saves hours every week</div>
+      <div class="tool-p paid">€20</div>
+      <div class="tool-cat">AI</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Google Workspace</div></div>
+      <div class="tool-r">Gmail, Drive, Docs — client files, contracts, recordings</div>
+      <div class="tool-p paid">€20</div>
+      <div class="tool-cat">Core</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">n8n (self-hosted)</div></div>
+      <div class="tool-r">All automations — Hetzner VPS, unlimited flows</div>
+      <div class="tool-p paid">€6</div>
+      <div class="tool-cat">Automation</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Stripe</div></div>
+      <div class="tool-r">Online payments — webhook fires "Paid" in Notion automatically</div>
+      <div class="tool-p free">% only</div>
+      <div class="tool-cat">Payments</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Calendly</div></div>
+      <div class="tool-r">Book discovery calls — link goes in every welcome email</div>
+      <div class="tool-p free">Free</div>
+      <div class="tool-cat">Scheduling</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Typeform</div></div>
+      <div class="tool-r">Client intake form — triggers the entire onboarding flow via n8n</div>
+      <div class="tool-p free">Free</div>
+      <div class="tool-cat">Forms</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Signaturely</div></div>
+      <div class="tool-r">Free e-signatures for contracts — no PandaDoc needed</div>
+      <div class="tool-p free">Free</div>
+      <div class="tool-cat">Legal</div>
+    </div>
+    <div class="stack-row">
+      <div><div class="tool-n">Loom</div></div>
+      <div class="tool-r">Record client handoff walkthroughs — link goes in delivery email</div>
+      <div class="tool-p free">Free</div>
+      <div class="tool-cat">Delivery</div>
+    </div>
+  </div>
+
+  <!-- COST -->
+  <div class="cost-box">
+    <div>
+      <div class="cost-label">Total monthly stack cost</div>
+      <div class="cost-big">€66/mo</div>
+    </div>
+    <div class="cost-note">
+      <strong>Notion</strong> — €20<br>
+      <strong>Claude Pro</strong> — €20<br>
+      <strong>Google Workspace</strong> — €20<br>
+      <strong>n8n VPS (Hetzner)</strong> — €6<br>
+      Everything else — Free to start
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-l">GA Consulting · 2026</div>
+    <div class="footer-r">
+      Internal use only<br>
+      Built with Notion · n8n · Claude
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

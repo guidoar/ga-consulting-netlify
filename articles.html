@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — GA Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:wght@300;400;500&family=Courier+Prime:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #f7f3ec; --ink: #18160f; --soft: #e8e2d6;
+  --rule: #cdc7bc; --red: #9b2c1a; --muted: #7c7872; --white: #fffefb;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: 'Karla', sans-serif; font-weight: 300; line-height: 1.6; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--paper); border-bottom: 1px solid var(--rule);
+  padding: 0 48px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 1px; text-decoration: none; color: var(--ink); }
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.nav-cta { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 8px 20px; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--red); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.3s; }
+.mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--paper); border-bottom: 2px solid var(--ink); z-index: 99; flex-direction: column; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Courier Prime', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; padding: 18px 24px; border-bottom: 1px solid var(--rule); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { background: var(--soft); }
+
+
+.hero { margin-top: 56px; min-height: calc(100vh - 56px); display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--ink); }
+.hero-left { padding: 80px 64px 80px 48px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--rule); }
+.hero-tag { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; animation: fadeUp 0.6s ease 0.1s both; }
+.hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+.hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 6vw, 88px); font-weight: 300; line-height: 1.0; letter-spacing: -1px; margin-bottom: 40px; animation: fadeUp 0.7s ease 0.2s both; }
+.hero-headline em { font-style: italic; color: var(--red); }
+.hero-body { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 420px; margin-bottom: 48px; animation: fadeUp 0.7s ease 0.35s both; }
+.hero-actions { display: flex; gap: 20px; align-items: center; animation: fadeUp 0.7s ease 0.45s both; }
+.btn-primary { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--white); background: var(--ink); padding: 14px 32px; text-decoration: none; border: 1px solid var(--ink); transition: background 0.2s; }
+.btn-primary:hover { background: var(--red); border-color: var(--red); }
+.btn-ghost { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); padding: 14px 32px; text-decoration: none; border: 1px solid var(--ink); transition: all 0.2s; }
+.btn-ghost:hover { background: var(--ink); color: var(--white); }
+.hero-footnote { font-family: 'Courier Prime', monospace; font-size: 10px; color: var(--rule); text-transform: uppercase; letter-spacing: 2px; padding-top: 48px; }
+.hero-right { background: var(--soft); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 48px; }
+.hero-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: center center; border: 5px solid var(--white); outline: 1px solid var(--rule); display: block; flex-shrink: 0; }
+.hero-stat-bar { display: flex; width: 100%; border-top: 1px solid var(--rule); padding-top: 24px; }
+.hero-stat { flex: 1; padding-right: 24px; border-right: 1px solid var(--rule); margin-right: 24px; }
+.hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; line-height: 1; margin-bottom: 4px; }
+.stat-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+
+
+.hero-right { background: var(--soft); padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.hero-right:hover { background: #dfd9cc; }
+.featured-tag { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); margin-bottom: 20px; display: block; }
+.featured-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 600; line-height: 1.15; margin-bottom: 20px; }
+.featured-excerpt { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 32px; }
+.featured-meta { font-family: 'Courier Prime', monospace; font-size: 10px; color: var(--rule); text-transform: uppercase; letter-spacing: 2px; display: flex; gap: 20px; }
+.read-more { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; transition: color 0.2s; display: inline-block; margin-bottom: 24px; }
+.read-more:hover { color: var(--red); border-color: var(--red); }
+.filter-bar { padding: 20px 48px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 0; background: var(--white); }
+.filter-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-right: 24px; white-space: nowrap; }
+.filter-tags { display: flex; gap: 0; flex-wrap: wrap; }
+.filter-tag { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 8px 20px; border: 1px solid var(--rule); border-right: none; cursor: pointer; color: var(--muted); background: transparent; transition: all 0.2s; }
+.filter-tag:last-child { border-right: 1px solid var(--rule); }
+.filter-tag:hover, .filter-tag.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.articles-section { padding: 64px 48px 100px; }
+.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); }
+.article-card { padding: 36px 32px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); cursor: pointer; transition: background 0.2s; display: flex; flex-direction: column; }
+.article-card:nth-child(3n) { border-right: none; }
+.article-card:nth-last-child(-n+3) { border-bottom: none; }
+.article-card:hover { background: var(--white); }
+.article-cat { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); margin-bottom: 14px; display: block; }
+.article-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; line-height: 1.25; margin-bottom: 12px; }
+.article-excerpt { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; flex: 1; }
+.article-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule); }
+.article-date { font-family: 'Courier Prime', monospace; font-size: 9px; color: var(--rule); text-transform: uppercase; letter-spacing: 1px; }
+.article-read { font-family: 'Courier Prime', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.newsletter { border-top: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.newsletter-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1; }
+.newsletter-headline em { font-style: italic; color: #c8a87a; }
+.newsletter-right { display: flex; flex-direction: column; gap: 20px; }
+.newsletter-body { font-size: 15px; color: #9a9590; line-height: 1.8; }
+.newsletter-form { display: flex; gap: 0; border: 1px solid #444; }
+.newsletter-input { flex: 1; background: transparent; border: none; outline: none; font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 300; color: var(--paper); padding: 14px 20px; }
+.newsletter-input::placeholder { color: #555; }
+.newsletter-btn { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); background: var(--paper); border: none; padding: 14px 24px; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.newsletter-btn:hover { background: #c8a87a; }
+.newsletter-note { font-family: 'Courier Prime', monospace; font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+
+footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--paper); letter-spacing: 1px; }
+.footer-logo span { color: #c8a87a; }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #555; text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--paper); }
+.footer-right { font-family: 'Courier Prime', monospace; font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: 1px; text-align: right; }
+
+
+@media (max-width: 860px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 48px 24px 40px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .hero-right { padding: 40px 24px; min-height: 360px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .service-card:last-child { border-bottom: none; }
+  .how-grid { grid-template-columns: 1fr; gap: 40px; }
+  .how-divider { display: none; }
+  .how-step { padding: 0; }
+  .trust { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+  .trust-divider { display: none; }
+  .trust-item { padding: 0; }
+  .articles-teaser { grid-template-columns: 1fr; gap: 24px; padding: 40px 24px; }
+  .teaser-posts { flex-direction: column; border-left: none; border-top: 1px solid var(--rule); padding-top: 20px; }
+  .teaser-post { padding: 12px 0; border-right: none; border-bottom: 1px solid var(--rule); }
+  .teaser-post:last-child { border-bottom: none; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-div { display: none; }
+  .story-col { padding: 0; }
+  .beliefs-grid { grid-template-columns: 1fr; }
+  .belief { border-right: none; border-bottom: 1px solid var(--rule); }
+  .belief:last-child { border-bottom: none; }
+  .bg-grid { grid-template-columns: 1fr; gap: 40px; }
+  .bg-div { display: none; }
+  .bg-col { padding: 0; }
+  .hobbies { grid-template-columns: 1fr; }
+  .hobby { border-right: none; border-bottom: 1px solid var(--rule); }
+  .hobby:last-child { border-bottom: none; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-item { border-right: none; }
+  .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .faq-item:last-child { border-bottom: none; }
+  .filter-bar { padding: 16px 24px; overflow-x: auto; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .article-card { border-right: none; }
+  .newsletter { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+  .newsletter-form { flex-direction: column; border: none; gap: 12px; }
+  .newsletter-input { border: 1px solid #444; padding: 12px 16px; }
+  .cta { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
+  .sec-wrap { padding: 56px 24px; }
+  .services { padding: 64px 24px; }
+  .how { padding: 64px 24px; }
+  .outside { padding: 56px 24px; }
+  .beliefs-inner { padding: 56px 24px; }
+  .faq { padding: 56px 24px; }
+  .articles-section { padding: 40px 24px 80px; }
+  footer { grid-template-columns: 1fr; gap: 20px; padding: 40px 24px; }
+  .footer-links { flex-wrap: wrap; gap: 16px; }
+  .footer-right { text-align: left; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">G<span>.</span>A</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services" >Services</a></li>
+    <li><a href="index.html#how">Process</a></li>
+    <li><a href="articles.html" class="active">Writing</a></li>
+    <li><a href="about.html" >About</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Work with me</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#how">Process</a>
+  <a href="articles.html">Writing</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Work with me</a>
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-tag">Writing &amp; thinking</div>
+      <h1 class="hero-headline">Honest writing<br>about <em>Notion,</em><br>ops &amp; systems.</h1>
+      <p class="hero-body">No fluff, no listicles. Just practical thinking from someone who builds these systems every day — what works, what doesn't, and why most companies get it wrong.</p>
+    </div>
+    <div class="hero-footnote">New article every two weeks</div>
+  </div>
+  <div class="hero-right">
+    <span class="featured-tag">Featured · Notion</span>
+    <div class="featured-title">Why most Notion setups fail — and how to build one that doesn't</div>
+    <p class="featured-excerpt">Most people start with templates. That's the first mistake. A good Notion workspace isn't a template — it's a reflection of how your team actually thinks and works.</p>
+    <a href="#" class="read-more">Read article →</a>
+    <div class="featured-meta"><span>March 2026</span><span>·</span><span>6 min read</span></div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <span class="filter-label">Filter by</span>
+  <div class="filter-tags">
+    <button class="filter-tag active" onclick="filterArticles('all', this)">All</button>
+    <button class="filter-tag" onclick="filterArticles('notion', this)">Notion</button>
+    <button class="filter-tag" onclick="filterArticles('operations', this)">Operations</button>
+    <button class="filter-tag" onclick="filterArticles('automation', this)">Automation</button>
+    <button class="filter-tag" onclick="filterArticles('business', this)">Business</button>
+  </div>
+</div>
+
+<section class="articles-section">
+  <div class="articles-grid" id="articles-grid">
+    <div class="article-card" data-cat="notion"><span class="article-cat">Notion</span><div class="article-title">Why most Notion setups fail — and how to build one that doesn't</div><p class="article-excerpt">Most people start with templates. That's the first mistake. A good Notion workspace isn't a template — it's a reflection of how your team actually thinks.</p><div class="article-footer"><span class="article-date">March 2026</span><span class="article-read">6 min read</span></div></div>
+    <div class="article-card" data-cat="operations"><span class="article-cat">Operations</span><div class="article-title">The five databases every small company needs</div><p class="article-excerpt">After building 20+ systems, I keep seeing the same five databases that every company needs — regardless of industry, size, or how chaotic things are right now.</p><div class="article-footer"><span class="article-date">February 2026</span><span class="article-read">4 min read</span></div></div>
+    <div class="article-card" data-cat="automation"><span class="article-cat">Automation</span><div class="article-title">How I automate client onboarding with n8n and Notion</div><p class="article-excerpt">From the moment a new client signs to the day their workspace goes live — here's the full automation flow I use to run my consulting business without manual work.</p><div class="article-footer"><span class="article-date">January 2026</span><span class="article-read">8 min read</span></div></div>
+    <div class="article-card" data-cat="notion"><span class="article-cat">Notion</span><div class="article-title">Notion vs spreadsheets: when to use which</div><p class="article-excerpt">Spreadsheets aren't going anywhere. But there are specific situations where Notion is clearly the better choice — and others where Excel wins every time.</p><div class="article-footer"><span class="article-date">December 2025</span><span class="article-read">5 min read</span></div></div>
+    <div class="article-card" data-cat="business"><span class="article-cat">Business</span><div class="article-title">What enterprise consulting taught me about small companies</div><p class="article-excerpt">I spent years working with Anaplan in enterprise environments. The lessons I took from that world turned out to be exactly what small companies were missing.</p><div class="article-footer"><span class="article-date">November 2025</span><span class="article-read">7 min read</span></div></div>
+    <div class="article-card" data-cat="operations"><span class="article-cat">Operations</span><div class="article-title">How to document your company's processes without boring everyone</div><p class="article-excerpt">Most SOPs die in a folder nobody opens. Here's how to write process documentation that people actually read, use, and update.</p><div class="article-footer"><span class="article-date">October 2025</span><span class="article-read">5 min read</span></div></div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2 class="newsletter-headline">New article<br>every two <em>weeks.</em><br>No spam.</h2>
+  <div class="newsletter-right">
+    <p class="newsletter-body">Short, practical writing on Notion, operations, and building systems that actually work. Join the people who read it.</p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="your@email.com" />
+      <button class="newsletter-btn" onclick="handleSubscribe(this)">Subscribe →</button>
+    </div>
+    <span class="newsletter-note">No spam. Unsubscribe anytime.</span>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">G<span>.</span>A Consulting</div>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="articles.html">Writing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-right">2026</div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.querySelector('.hamburger');
+  if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+<script>
+function filterArticles(cat, btn) {
+  document.querySelectorAll('.filter-tag').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(function(card) {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+function handleSubscribe(btn) {
+  var input = btn.previousElementSibling;
+  if (input.value && input.value.includes('@')) {
+    btn.textContent = 'Subscribed ✓';
+    btn.style.background = '#2d5a3d';
+    btn.disabled = true;
+    input.disabled = true;
+  }
+}
+</script>
+</body>
+</html>
