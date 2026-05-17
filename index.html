@@ -56,7 +56,7 @@ nav {
 .hero-stat { flex: 1; padding-right: 24px; border-right: 1px solid var(--rule); margin-right: 24px; }
 .hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
 .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; line-height: 1; margin-bottom: 4px; }
-.stat-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+.stat-label { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
 
 
 .marquee-wrap { background: var(--ink); overflow: hidden; padding: 14px 0; }
@@ -74,7 +74,7 @@ nav {
 .service-card:hover { background: var(--white); }
 .service-num { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); margin-bottom: 24px; display: block; }
 .service-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 16px; line-height: 1.2; }
-.service-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+.service-desc { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
 .service-includes { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .service-includes li { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding-left: 14px; position: relative; }
 .service-includes li::before { content: '—'; position: absolute; left: 0; color: var(--rule); }
@@ -86,8 +86,8 @@ nav {
 .how-step:last-child { padding-right: 0; }
 .how-step-num { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: var(--soft); line-height: 1; margin-bottom: 16px; }
 .how-step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
-.how-step-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
-.how-step-tag { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; padding: 3px 8px; border: 1px solid var(--rule); color: var(--muted); }
+.how-step-desc { font-size: 15px; color: var(--muted); line-height: 1.8; }
+.how-step-tag { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-top: 16px; padding: 3px 8px; border: 1px solid var(--rule); color: var(--muted); }
 .trust { padding: 64px 48px; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; align-items: center; }
 .trust-divider { background: var(--rule); height: 48px; align-self: center; }
 .trust-item { padding: 0 48px; }
@@ -102,7 +102,7 @@ nav {
 .teaser-post:last-child { border-right: none; }
 .teaser-post:hover .teaser-post-title { color: var(--red); }
 .teaser-post-tag { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); margin-bottom: 5px; display: block; }
-.teaser-post-title { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; line-height: 1.35; transition: color 0.2s; margin-bottom: 5px; }
+.teaser-post-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; line-height: 1.35; transition: color 0.2s; margin-bottom: 5px; }
 .teaser-post-date { font-family: 'Courier Prime', monospace; font-size: 9px; color: var(--rule); text-transform: uppercase; letter-spacing: 1px; }
 .teaser-cta { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: all 0.2s; white-space: nowrap; }
 .teaser-cta:hover { background: var(--ink); color: var(--white); }
@@ -229,26 +229,6 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   </div>
 </section>
 
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">CRM Systems</span>
-    <span class="marquee-item">Project Management</span>
-    <span class="marquee-item">Team Wikis</span>
-    <span class="marquee-item">Workflow Automation</span>
-    <span class="marquee-item">Notion Consulting</span>
-    <span class="marquee-item">Client Portals</span>
-    <span class="marquee-item">Operations Design</span>
-    <span class="marquee-item">Remote Friendly</span>
-    <span class="marquee-item">CRM Systems</span>
-    <span class="marquee-item">Project Management</span>
-    <span class="marquee-item">Team Wikis</span>
-    <span class="marquee-item">Workflow Automation</span>
-    <span class="marquee-item">Notion Consulting</span>
-    <span class="marquee-item">Client Portals</span>
-    <span class="marquee-item">Operations Design</span>
-    <span class="marquee-item">Remote Friendly</span>
-  </div>
-</div>
 
 <section class="services" id="services">
   <div class="section-header"><span class="section-num">01</span><h2 class="section-title">What I build for you</h2></div>
@@ -287,13 +267,6 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   </div>
 </section>
 
-<section class="trust">
-  <div class="trust-item"><p class="trust-quote">"Before Guido, our team lived in email. Now everything has a home."</p><span class="trust-name">— Placeholder · Add your real testimonial</span></div>
-  <div class="trust-divider"></div>
-  <div class="trust-item"><p class="trust-quote">"He understood our business in 30 minutes and built exactly what we needed."</p><span class="trust-name">— Placeholder · Add your real testimonial</span></div>
-  <div class="trust-divider"></div>
-  <div class="trust-item"><p class="trust-quote">"Onboarding new hires went from a week to two days."</p><span class="trust-name">— Placeholder · Add your real testimonial</span></div>
-</section>
 
 <section class="articles-teaser">
   <div class="teaser-label">From the blog</div>
