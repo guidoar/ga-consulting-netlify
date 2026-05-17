@@ -179,7 +179,7 @@ Open `index.html`, find `.services-grid`. Match existing structure exactly: `ser
 
 ## Deployment
 
-**Netlify** — connected to [guidoar/ga-consulting-netlify](https://github.com/guidoar/ga-consulting-netlify).
+**Netlify** — connected to [guidoar/ga-consulting-netlify](https://github.com/guidoar/ga-consulting-netlify), live at [gaconsulting.netlify.app](https://gaconsulting.netlify.app/).
 
 - Push to `master` → auto-deploys
 - No build command, publish dir: `.`
@@ -196,7 +196,7 @@ Open `index.html`, find `.services-grid`. Match existing structure exactly: `ser
 
 ## Open questions / placeholders to resolve
 
-- [ ] Domain name — currently linking to local files
+- [ ] Domain name — currently `https://gaconsulting.netlify.app/` (custom domain pending)
 - [ ] Hosting provider — see Deployment section
 - [ ] Cal.com link for discovery call — currently `contact.html`, fine for now
 - [ ] Real testimonials — 3 placeholders in `index.html`
