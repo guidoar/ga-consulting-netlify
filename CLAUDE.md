@@ -179,12 +179,11 @@ Open `index.html`, find `.services-grid`. Match existing structure exactly: `ser
 
 ## Deployment
 
-[REPLACE WITH ACTUAL DEPLOY PROCESS — likely one of:]
+**Netlify** — connected to [guidoar/ga-consulting-netlify](https://github.com/guidoar/ga-consulting-netlify).
 
-- **If Cloudflare Pages:** Pushes to `main` branch auto-deploy. `wrangler pages deploy .` for manual.
-- **If Netlify:** Drag-and-drop the folder, or connect to GitHub for auto-deploy on push.
-- **If GitHub Pages:** Pushes to `main` auto-deploy via Actions.
-- **If Vercel:** `vercel --prod` or auto-deploy on push.
+- Push to `master` → auto-deploys
+- No build command, publish dir: `.`
+- Manual deploy: drag-and-drop the folder at app.netlify.com
 
 ## Things NOT to do
 
