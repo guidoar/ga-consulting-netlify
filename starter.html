@@ -106,7 +106,10 @@ nav {
 .beyond-heading { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 32px; line-height: 1.2; }
 .beyond-item { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--rule); }
 .beyond-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.beyond-item-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+.beyond-item-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+.plan-intro { font-size: 16px; color: var(--ink); line-height: 1.8; margin-bottom: 24px; }
+.plan-link { font-family: 'Courier Prime', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; transition: border-color 0.2s, color 0.2s; display: inline-block; margin-bottom: 32px; }
+.plan-link:hover { color: var(--red); border-color: var(--red); }
 .beyond-item-desc { font-size: 15px; color: var(--ink); line-height: 1.8; }
 .beyond-item-tag { display: inline-block; margin-top: 8px; font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; padding: 2px 8px; border: 1px solid var(--rule); color: var(--muted); }
 .plan-item { display: flex; gap: 16px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--rule); align-items: baseline; }
@@ -260,19 +263,9 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   <div class="beyond-div"></div>
   <div class="beyond-col">
     <div class="beyond-label">Notion plan guide</div>
-    <div class="beyond-heading">Which plan<br>do you need?</div>
-    <div class="plan-item">
-      <div class="plan-name">Free</div>
-      <div class="plan-detail">Unlimited pages, 1 workspace. Fine for solo use or testing. Not enough for a real team.</div>
-    </div>
-    <div class="plan-item">
-      <div class="plan-name">Plus</div>
-      <div class="plan-detail"><strong>€10/user/month</strong> — Best for most small teams. Unlimited blocks, file uploads, version history. This is usually what I recommend for Starter builds.</div>
-    </div>
-    <div class="plan-item">
-      <div class="plan-name">Business</div>
-      <div class="plan-detail"><strong>€15/user/month</strong> — Better permissions and advanced analytics. Worth it for 20+ people or teams with external collaborators.</div>
-    </div>
+    <div class="beyond-heading">Which Notion<br>plan do you need?</div>
+    <p class="plan-intro">Depends on team size and features. Notion updates their plans and pricing regularly — check the current options directly.</p>
+    <a href="https://www.notion.so/pricing" target="_blank" rel="noopener" class="plan-link">notion.so/pricing ↗</a>
     <p class="beyond-note">I'll recommend the right plan based on your team size when I send the build.</p>
   </div>
 </section>
