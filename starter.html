@@ -96,6 +96,26 @@ nav {
 .form-submit:hover { background: var(--red); border-color: var(--red); }
 .form-note { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--rule); }
 
+/* beyond section */
+.beyond { padding: 100px 48px; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0; }
+.beyond-div { background: var(--rule); }
+.beyond-col { padding: 0 48px; }
+.beyond-col:first-child { padding-left: 0; }
+.beyond-col:last-child { padding-right: 0; }
+.beyond-label { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: var(--red); margin-bottom: 20px; }
+.beyond-heading { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 32px; line-height: 1.2; }
+.beyond-item { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.beyond-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.beyond-item-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+.beyond-item-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
+.beyond-item-tag { display: inline-block; margin-top: 8px; font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; padding: 2px 8px; border: 1px solid var(--rule); color: var(--muted); }
+.plan-item { display: flex; gap: 16px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.plan-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.plan-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; min-width: 80px; }
+.plan-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.plan-detail strong { font-family: 'Courier Prime', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); font-weight: 400; }
+.beyond-note { font-family: 'Courier Prime', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--rule); margin-top: 24px; }
+
 footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
 .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--paper); letter-spacing: 1px; }
 .footer-logo span { color: #c8a87a; }
@@ -119,6 +139,10 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
   .order { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
   .includes { padding: 72px 24px; }
   .how { padding: 72px 24px; }
+  .beyond { grid-template-columns: 1fr; padding: 72px 24px; }
+  .beyond-div { display: none; }
+  .beyond-col { padding: 0; margin-bottom: 48px; }
+  .beyond-col:last-child { margin-bottom: 0; }
   footer { grid-template-columns: 1fr; gap: 20px; padding: 40px 24px; }
   .footer-links { flex-wrap: wrap; gap: 16px; }
   .footer-right { text-align: left; }
@@ -215,6 +239,41 @@ footer { background: var(--ink); border-top: 1px solid #2a2820; padding: 40px 48
         <li>Team templates</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="beyond">
+  <div class="beyond-col">
+    <div class="beyond-label">Not included — but available</div>
+    <div class="beyond-heading">Where the Starter<br>can take you</div>
+    <div class="beyond-item">
+      <div class="beyond-item-title">AI & Automations</div>
+      <p class="beyond-item-desc">Connect your Notion system to Slack, email, and calendar. Automate lead capture, onboarding triggers, and weekly summaries via n8n or Notion AI. Turns a static workspace into one that works while you don't.</p>
+      <span class="beyond-item-tag">Separate engagement</span>
+    </div>
+    <div class="beyond-item">
+      <div class="beyond-item-title">Full Company OS</div>
+      <p class="beyond-item-desc">More departments, dashboards, and custom reporting. The Starter is a foundation — the full build is the whole house. Upgrade any time once you've seen what the system can do.</p>
+      <span class="beyond-item-tag">Custom build</span>
+    </div>
+  </div>
+  <div class="beyond-div"></div>
+  <div class="beyond-col">
+    <div class="beyond-label">Notion plan guide</div>
+    <div class="beyond-heading">Which plan<br>do you need?</div>
+    <div class="plan-item">
+      <div class="plan-name">Free</div>
+      <div class="plan-detail">Unlimited pages, 1 workspace. Fine for solo use or testing. Not enough for a real team.</div>
+    </div>
+    <div class="plan-item">
+      <div class="plan-name">Plus</div>
+      <div class="plan-detail"><strong>€10/user/month</strong> — Best for most small teams. Unlimited blocks, file uploads, version history. This is usually what I recommend for Starter builds.</div>
+    </div>
+    <div class="plan-item">
+      <div class="plan-name">Business</div>
+      <div class="plan-detail"><strong>€15/user/month</strong> — Better permissions and advanced analytics. Worth it for 20+ people or teams with external collaborators.</div>
+    </div>
+    <p class="beyond-note">I'll recommend the right plan based on your team size when I send the build.</p>
   </div>
 </section>
 
